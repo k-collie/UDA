@@ -23,13 +23,13 @@ elseif ( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" AND ${CMAKE_CXX_COMPILER_VE
 endif()
 
 configure_file(
-  "${CMAKE_SOURCE_DIR}/source/etc/udaPlugins.conf.in"
+  "${CMAKE_CURRENT_SOURCE_DIR}/source/etc/udaPlugins.conf.in"
   "${CMAKE_CURRENT_BINARY_DIR}/udaPlugins.conf"
   COPYONLY
 )
 
 configure_file(
-  "${CMAKE_SOURCE_DIR}/source/etc/test_plugin.cpp.in"
+  "${CMAKE_CURRENT_SOURCE_DIR}/source/etc/test_plugin.cpp.in"
   "${CMAKE_CURRENT_BINARY_DIR}/test_plugin.cpp"
   @ONLY
 )
@@ -42,7 +42,7 @@ install(
     etc/plugins
 )
 
-file( MAKE_DIRECTORY "${CMAKE_BINARY_DIR}/server/plugins.d" )
+file( MAKE_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/server/plugins.d" )
 
 if( DEFINED BUILD_PLUGINS )
   foreach( PLUGIN IN ITEMS ${BUILD_PLUGINS} )
@@ -62,7 +62,7 @@ endif( DEFINED BUILD_PLUGINS )
 add_definitions( -DSERVERBUILD )
 
 include_directories(
-  ${CMAKE_SOURCE_DIR}/source
+  ${CMAKE_CURRENT_SOURCE_DIR}/..
   ${LIBXML2_INCLUDE_DIR}
   ${Boost_INCLUDE_DIRS}
 )

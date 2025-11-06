@@ -29,10 +29,10 @@ set( SOURCES xdr_array.c xdr_float.c xdr_mem.c xdr_reference.c xdr.c xdr_intXX_t
 
 configure_file(
   config.h.in
-  ${CMAKE_BINARY_DIR}/config.h
+  ${CMAKE_CURRENT_BINARY_DIR}/config.h
 )
 
-include_directories( ${CMAKE_BINARY_DIR} ${CMAKE_SOURCE_DIR} )
+include_directories( ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR} )
 
 option( BUILD_SHARED_LIBS "build xdrlib as a shared library" ON )
 if( BUILD_SHARED_LIBS )
@@ -46,7 +46,7 @@ if( CMAKE_C_COMPILER_ID MATCHES "GNU|Clang" )
 endif()
 
 install(
-    FILES rpc/rpc.h rpc/types.h rpc/xdr.h ${CMAKE_BINARY_DIR}/config.h
+    FILES rpc/rpc.h rpc/types.h rpc/xdr.h ${CMAKE_CURRENT_BINARY_DIR}/config.h
     DESTINATION include/rpc
 )
 

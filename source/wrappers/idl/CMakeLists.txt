@@ -27,7 +27,7 @@ set( LIB_NAME ${PROJECT_NAME}_idl )
 set( SRC_FILES idam_dlm.c idamStructs.c )
 
 include_directories(
-  ${CMAKE_SOURCE_DIR}/source
+  ${CMAKE_CURRENT_SOURCE_DIR}/source
   ${IDL_INCLUDES}
   ${LIBXML2_INCLUDE_DIR}
 )

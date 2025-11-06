@@ -21,7 +21,7 @@ include( UseJava )
 set( CMAKE_JAVA_COMPILE_FLAGS "-source" "1.8" "-target" "1.8" )
 
 include_directories(
-  ${CMAKE_SOURCE_DIR}/source
+  ${CMAKE_CURRENT_SOURCE_DIR}/source
   ${JNI_INCLUDE_DIRS}
   ${LIBXML2_INCLUDE_DIR}
 )

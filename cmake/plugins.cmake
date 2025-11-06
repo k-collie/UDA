@@ -44,7 +44,7 @@ macro( uda_plugin )
   endif()
 
   include_directories(
-    ${CMAKE_SOURCE_DIR}/source
+    ${CMAKE_CURRENT_SOURCE_DIR}/source
   )
 
   if( NOT APPLE AND NOT WIN32 AND NOT MINGW AND CMAKE_COMPILER_IS_GNUCC )
@@ -155,14 +155,14 @@ macro( uda_plugin )
       "${EXTRA_NAME}, ${PLUGIN_TYPE}, ${PLUGIN_ENTRY_FUNC}, lib${PLUGIN_LIBNAME}.${EXT_NAME}, ${PLUGIN_EXTENSION}, 1, 1, 1, ${PLUGIN_DESCRIPTION}, ${PLUGIN_EXAMPLE}\n" )
   endforeach()
 
-  if( NOT EXISTS "${CMAKE_BINARY_DIR}/etc/plugins.d" )
-    file( MAKE_DIRECTORY "${CMAKE_BINARY_DIR}/etc/plugins.d" )
+  if( NOT EXISTS "${CMAKE_CURRENT_BINARY_DIR}/etc/plugins.d" )
+    file( MAKE_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/etc/plugins.d" )
   endif()
 
   if( NOT "${PLUGIN_CONFIG_FILE}" STREQUAL "" )
     configure_file(
       "${CMAKE_CURRENT_LIST_DIR}/${PLUGIN_CONFIG_FILE}.in"
-      "${CMAKE_BINARY_DIR}/etc/plugins.d/${PLUGIN_CONFIG_FILE}"
+      "${CMAKE_CURRENT_BINARY_DIR}/etc/plugins.d/${PLUGIN_CONFIG_FILE}"
       @ONLY
     )
   endif()

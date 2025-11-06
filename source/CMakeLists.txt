@@ -71,12 +71,12 @@ endif()
 
 string( TIMESTAMP BUILD_TIMESTAMP UTC )
 configure_file(
-  ${CMAKE_SOURCE_DIR}/source/version.h.in
-  ${CMAKE_BINARY_DIR}/source/version.h
+  ${CMAKE_CURRENT_SOURCE_DIR}/version.h.in
+  ${CMAKE_CURRENT_BINARY_DIR}/version.h
   @ONLY
 )
 
-install( FILES uda.h ${CMAKE_BINARY_DIR}/source/version.h DESTINATION include/uda )
+install( FILES uda.h ${CMAKE_CURRENT_BINARY_DIR}/version.h DESTINATION include/uda )
 
 set( ENV_PATH )
 if( WIN32 AND NOT MINGW )
@@ -89,13 +89,13 @@ string( STRIP "${ENV_PATH}" ENV_PATH )
 find_program( PYTHON_EXE NAMES python python3 PATHS /usr/bin/ )
 
 configure_file(
-  ${CMAKE_SOURCE_DIR}/source/bin/install_plugin.in
-  ${CMAKE_BINARY_DIR}/bin/install_plugin
+  ${CMAKE_CURRENT_SOURCE_DIR}/bin/install_plugin.in
+  ${CMAKE_CURRENT_BINARY_DIR}/bin/install_plugin
   @ONLY
 )
 
 install(
-  FILES ${CMAKE_BINARY_DIR}/bin/install_plugin
+  FILES ${CMAKE_CURRENT_BINARY_DIR}/bin/install_plugin
   DESTINATION bin
   PERMISSIONS OWNER_EXECUTE OWNER_READ GROUP_EXECUTE GROUP_READ WORLD_EXECUTE WORLD_READ
 )
@@ -135,28 +135,28 @@ endif()
 
 foreach( PKGCONFIG_FILE ${PKGCONFIG_FILES} )
   configure_file(
-    "${CMAKE_SOURCE_DIR}/source/etc/${PKGCONFIG_FILE}.in"
-    "${CMAKE_BINARY_DIR}/lib/pkgconfig/${PKGCONFIG_FILE}"
+    "${CMAKE_CURRENT_SOURCE_DIR}/etc/${PKGCONFIG_FILE}.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/lib/pkgconfig/${PKGCONFIG_FILE}"
     @ONLY
   )
 endforeach()
 
 install(
   DIRECTORY
-    ${CMAKE_BINARY_DIR}/lib/pkgconfig
+    ${CMAKE_CURRENT_BINARY_DIR}/lib/pkgconfig
   DESTINATION lib
 )
 
 find_program( XINETD_EXE xinetd PATHS /usr/sbin/ /usr/local/sbin/ )
 
 configure_file(
-  ${CMAKE_SOURCE_DIR}/source/etc/rc.uda.in
-  ${CMAKE_BINARY_DIR}/etc/rc.uda
+  ${CMAKE_CURRENT_SOURCE_DIR}/etc/rc.uda.in
+  ${CMAKE_CURRENT_BINARY_DIR}/etc/rc.uda
   @ONLY
 )
 
 install(
-  FILES ${CMAKE_BINARY_DIR}/etc/rc.uda
+  FILES ${CMAKE_CURRENT_BINARY_DIR}/etc/rc.uda
   DESTINATION etc
   PERMISSIONS OWNER_EXECUTE OWNER_READ GROUP_EXECUTE GROUP_READ WORLD_EXECUTE WORLD_READ
 )
@@ -168,13 +168,13 @@ set( SERVICE_FILES
 
 foreach( SERVICE_FILE ${SERVICE_FILES} )
   configure_file(
-    "${CMAKE_SOURCE_DIR}/source/etc/${SERVICE_FILE}.in"
-    "${CMAKE_BINARY_DIR}/etc/${SERVICE_FILE}"
+    "${CMAKE_CURRENT_SOURCE_DIR}/etc/${SERVICE_FILE}.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/etc/${SERVICE_FILE}"
     @ONLY
   )
 
   install(
-    FILES "${CMAKE_BINARY_DIR}/etc/${SERVICE_FILE}"
+    FILES "${CMAKE_CURRENT_BINARY_DIR}/etc/${SERVICE_FILE}"
     DESTINATION etc
     PERMISSIONS OWNER_READ GROUP_READ WORLD_READ
   )

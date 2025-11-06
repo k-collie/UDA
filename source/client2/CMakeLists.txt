@@ -70,7 +70,7 @@ set( HEADER_FILES
 )
 
 include_directories(
-  ${CMAKE_SOURCE_DIR}/source
+  ${CMAKE_CURRENT_SOURCE_DIR}/..
   ${OPENSSL_INCLUDE_DIR}
   ${LIBXML2_INCLUDE_DIR}
   ${fmt_SOURCE_DIR}/include

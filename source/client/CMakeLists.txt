@@ -72,7 +72,7 @@ set( HEADER_FILES
 )
 
 include_directories(
-  ${CMAKE_SOURCE_DIR}/source
+  ${CMAKE_CURRENT_SOURCE_DIR}/..
   ${OPENSSL_INCLUDE_DIR}
   ${LIBXML2_INCLUDE_DIR}
   ${fmt_SOURCE_DIR}/include
@@ -111,6 +111,14 @@ add_library( client-static STATIC ${CLIENT_OBJS} )
 if( BUILD_SHARED_LIBS )
   add_library( client-shared SHARED ${CLIENT_OBJS} )
 endif()
+
+target_include_directories(client-static PUBLIC
+  ${TIRPC_INCLUDE_DIR}
+  ${OPENSSL_INCLUDE_DIR}
+  ${LIBXML2_INCLUDE_DIR}
+  ${fmt_SOURCE_DIR}/include
+  ${Boost_INCLUDE_DIRS}
+)
 
 set( CLIENT_LINK_LIBS ${OPENSSL_LIBRARIES} ${CACHE_LIBRARIES} ${LIBXML2_LIBRARIES} fmt::fmt )
 if( NOT CLIENT_ONLY )

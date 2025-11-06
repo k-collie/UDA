@@ -14,7 +14,7 @@ set( SRC_FILES
   x509Utils.cpp
 )
 
-include_directories( ${CMAKE_SOURCE_DIR}/source ${GCRYPT_INCLUDE_DIRS} ${KSBA_INCLUDE_DIRS} )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/.. ${GCRYPT_INCLUDE_DIRS} ${KSBA_INCLUDE_DIRS} )
 
 add_library( security-objects OBJECT ${SRC_FILES} )
 

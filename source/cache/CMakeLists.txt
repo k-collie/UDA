@@ -26,7 +26,7 @@ include_directories(
   ${OPENSSL_INCLUDE_DIR}
   ${Boost_INCLUDE_DIRS}
   ${Boost_INCLUDE_DIR}
-  ${CMAKE_SOURCE_DIR}/source
+  ${CMAKE_CURRENT_SOURCE_DIR}/..
   ${LIBXML2_INCLUDE_DIR}
   ${FMT_INCLUDE_DIR}
 )

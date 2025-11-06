@@ -36,8 +36,8 @@ if( LIBMEMCACHED_FOUND )
 endif()
 
 include_directories(
-  ${CMAKE_SOURCE_DIR}/source
-  ${CMAKE_SOURCE_DIR}/source/wrappers
+  ${CMAKE_CURRENT_SOURCE_DIR}/source
+  ${CMAKE_CURRENT_SOURCE_DIR}/source/wrappers
 )
 
 configure_file(
@@ -56,7 +56,7 @@ include_directories( SYSTEM ${Boost_INCLUDE_DIRS} )
 include_directories( SYSTEM ${LIBXML2_INCLUDE_DIR} )
 include_directories( ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_LIST_DIR} )
 
-link_directories( ${CMAKE_BINARY_DIR}/source/wrappers/c++ )
+link_directories( ${CMAKE_CURRENT_BINARY_DIR}/source/wrappers/c++ )
 
 file( GLOB HELPER_FILES "test_helpers.*" )
 

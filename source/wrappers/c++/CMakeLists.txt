@@ -41,7 +41,7 @@ set( SRC_FILES
 )
 
 include_directories(
-  ${CMAKE_SOURCE_DIR}/source
+  ${CMAKE_CURRENT_SOURCE_DIR}/source
   ${Boost_INCLUDE_DIR}
   ${fmt_SOURCE_DIR}/include
 )
@@ -144,12 +144,12 @@ endif()
 
 # pkg-config file
 configure_file(
-  ${CMAKE_SOURCE_DIR}/source/etc/uda-cpp.pc.in
-  ${CMAKE_BINARY_DIR}/etc/uda/uda-cpp.pc
+  ${CMAKE_CURRENT_SOURCE_DIR}/source/etc/uda-cpp.pc.in
+  ${CMAKE_CURRENT_BINARY_DIR}/etc/uda/uda-cpp.pc
   @ONLY
 )
 
-install( FILES ${CMAKE_BINARY_DIR}/etc/uda/uda-cpp.pc
+install( FILES ${CMAKE_CURRENT_BINARY_DIR}/etc/uda/uda-cpp.pc
   DESTINATION modulefiles/uda
 )
 
@@ -186,12 +186,12 @@ if( NOT CLIENT_ONLY )
   
   # pkg-config file
   configure_file(
-    ${CMAKE_SOURCE_DIR}/source/etc/uda-fat-cpp.pc.in
-    ${CMAKE_BINARY_DIR}/etc/uda/uda-fat-cpp.pc
+    ${CMAKE_CURRENT_SOURCE_DIR}/source/etc/uda-fat-cpp.pc.in
+    ${CMAKE_CURRENT_BINARY_DIR}/etc/uda/uda-fat-cpp.pc
     @ONLY
   )
   
-  install( FILES ${CMAKE_BINARY_DIR}/etc/uda/uda-fat-cpp.pc
+  install( FILES ${CMAKE_CURRENT_BINARY_DIR}/etc/uda/uda-fat-cpp.pc
     DESTINATION modulefiles/uda
   )
 endif()

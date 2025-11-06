@@ -57,7 +57,7 @@ set( HEADER_FILES
 )
 
 include_directories(
-  ${CMAKE_SOURCE_DIR}/source
+  ${CMAKE_CURRENT_SOURCE_DIR}/..
   ${CMAKE_CURRENT_SOURCE_DIR}
   ${LIBXML2_INCLUDE_DIR}
   ${OPENSSL_INCLUDE_DIR}
@@ -269,20 +269,20 @@ set( ETC_FILES
   launchd.udaserver.plist
 )
 
-set( GEN_ETC_FILES ${CMAKE_BINARY_DIR}/etc/udagenstruct.conf )
+set( GEN_ETC_FILES ${CMAKE_CURRENT_BINARY_DIR}/etc/udagenstruct.conf )
 
 foreach( ETC_FILE ${ETC_FILES} )
   configure_file(
-    "${CMAKE_SOURCE_DIR}/source/etc/${ETC_FILE}.in"
-    "${CMAKE_BINARY_DIR}/etc/${ETC_FILE}"
+    "${CMAKE_CURRENT_SOURCE_DIR}/source/etc/${ETC_FILE}.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/etc/${ETC_FILE}"
     @ONLY
   )
-  list( APPEND GEN_ETC_FILES ${CMAKE_BINARY_DIR}/etc/${ETC_FILE} )
+  list( APPEND GEN_ETC_FILES ${CMAKE_CURRENT_BINARY_DIR}/etc/${ETC_FILE} )
 endforeach()
 
 configure_file(
-  "${CMAKE_SOURCE_DIR}/source/etc/udagenstruct.conf"
-  "${CMAKE_BINARY_DIR}/etc/udagenstruct.conf"
+  "${CMAKE_CURRENT_SOURCE_DIR}/source/etc/udagenstruct.conf"
+  "${CMAKE_CURRENT_BINARY_DIR}/etc/udagenstruct.conf"
   COPYONLY
 )
 
@@ -294,27 +294,27 @@ install(
 
 install(
   DIRECTORY
-    ${CMAKE_SOURCE_DIR}/source/etc/machine.d
+    ${CMAKE_CURRENT_SOURCE_DIR}/source/etc/machine.d
   DESTINATION etc
 )
 
 install(
   FILES
-    ${CMAKE_BINARY_DIR}/etc/udaserver.sh
-    ${CMAKE_BINARY_DIR}/etc/rc.uda
+    ${CMAKE_CURRENT_BINARY_DIR}/etc/udaserver.sh
+    ${CMAKE_CURRENT_BINARY_DIR}/etc/rc.uda
   DESTINATION etc
   PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ WORLD_READ
 )
 
 install(
   DIRECTORY
-    ${CMAKE_BINARY_DIR}/etc/plugins.d
+    ${CMAKE_CURRENT_BINARY_DIR}/etc/plugins.d
   DESTINATION etc
 )
 
 install(
   FILES
-    ${CMAKE_BINARY_DIR}/etc/udagenstruct.conf
+    ${CMAKE_CURRENT_BINARY_DIR}/etc/udagenstruct.conf
   DESTINATION etc
 )
 

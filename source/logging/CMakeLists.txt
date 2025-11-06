@@ -25,7 +25,7 @@ else()
 endif()
 
 include_directories(
-  ${CMAKE_SOURCE_DIR}/source
+  ${CMAKE_CURRENT_SOURCE_DIR}/..
   ${LIBXML2_INCLUDE_DIR}
 )
 

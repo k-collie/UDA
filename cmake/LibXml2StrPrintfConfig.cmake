@@ -8,7 +8,7 @@ find_package( LibXml2 QUIET )
 if( LIBXML2_FOUND )
   include( CheckCSourceCompiles )
 
-  file( READ ${CMAKE_SOURCE_DIR}/cmake/check_xmlstrprintf.c CHECK_XMLPRINTF_SOURCE )
+  file( READ ${CMAKE_CURRENT_SOURCE_DIR}/cmake/check_xmlstrprintf.c CHECK_XMLPRINTF_SOURCE )
 
   if( "${CMAKE_C_COMPILER_ID}" STREQUAL "Clang" )
     set( CMAKE_REQUIRED_FLAGS "-Qunused-arguments -Wall -Werror" )
