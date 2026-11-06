@@ -3,11 +3,14 @@
 #ifndef UDA_CLIENTSERVER_CAPNP_SERIALISATION_H
 #define UDA_CLIENTSERVER_CAPNP_SERIALISATION_H
 
+#ifdef __cplusplus
 #include <cstdlib>
 #include <cstdint>
-
-#ifdef __cplusplus
 extern "C" {
+#else
+#include <stdbool.h>
+#include <stdlib.h>
+#include <stdint.h>
 #endif
 
 typedef struct Complex COMPLEX;
@@ -23,11 +26,11 @@ typedef struct Optional_Size_t {
     size_t value;
 } OPTIONAL_SIZE_T;
 
-struct TreeBuilder;
-struct NodeBuilder;
+typedef struct TreeBuilder TreeBuilder;
+typedef struct NodeBuilder NodeBuilder;
 
-struct TreeReader;
-struct NodeReader;
+typedef struct TreeReader TreeReader;
+typedef struct NodeReader NodeReader;
 
 BUFFER uda_capnp_serialise(TreeBuilder* tree);
 TreeReader* uda_capnp_deserialise(const char* bytes, size_t size);
